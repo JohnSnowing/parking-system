@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Layout from "./components/Layout/Layout";
+import { Routes, Route } from "react-router-dom";
+import React from "react";
+
+import ParkingManagement from "./pages/parking/ParkingManagement";
+import CarParkedList from "./pages/parking/CarParkedList";
+import NewGate from "./pages/parking/NewGate";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" exact element={<ParkingManagement />} />
+        <Route path="/parked-cars" element={<CarParkedList />} />
+        <Route path="/new-gate" element={<NewGate />} />
+      </Routes>
+    </Layout>
   );
 }
 
